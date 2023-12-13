@@ -1,3 +1,9 @@
-*.swp
-main
-main.dSYM/
+# Default: Ignore everything
+*
+
+# Do not Ignore these Files
+!.gitignore
+!Makefile
+!main.c
+!result.txt
+!workload.txt*.swp
