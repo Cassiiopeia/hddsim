@@ -1,0 +1,4 @@
+<< HDDSIM-TEST-RESULT >>
+Total Sectors = 89
+Total Time = 667 ms
+Total Power = 0.06 W
