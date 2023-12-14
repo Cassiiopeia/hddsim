@@ -1,7 +1,7 @@
 HDD simulator
 =============
 
-This program provides a simple hardware simulator
+This program provides a simple harddisk drive simulator
 ---
 ### Guide
 1. Set up workload.txt
