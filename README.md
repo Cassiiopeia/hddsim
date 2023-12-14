@@ -2,13 +2,14 @@ HDD simulator
 =============
 
 This program provides a simple hardware simulator
-
-## Guide
+---
+### Guide
 1. Set up workload.txt
 2. Compile "main.c" file and run
 3. result will be saved at "result.txt" file
-
-## WORKLOAD.TXT Structure
+<br><br>
+---
+### WORKLOAD.TXT Structure
 - Each line is one task
 - Each task contains 3 information
   - Request Type ( W/R )
