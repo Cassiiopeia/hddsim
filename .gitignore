@@ -4,6 +4,12 @@
 # Do not Ignore these Files
 !.gitignore
 !Makefile
-!main.c
+
 !result.txt
 !workload.txt*.swp
+
+!main.c
+!sim_info.h
+!task_queue.c
+!task_queue.h
+
