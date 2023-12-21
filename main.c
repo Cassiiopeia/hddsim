@@ -1,13 +1,9 @@
 #include<stdio.h>
+#include<stdlib.h>
+#include "task_queue.h"
+#include "sim_info.h"
+
 #define MAX 					100	
-#define SECTOR_SIZE 			512	// 1 sector = 512 bytes
-#define SEEK_TIME				15 // ms
-#define ROTATE_LATENCY 			8 // ms
-#define TRANSFER_RATE			50 // Byte/ms
-#define COMMAND_OVERHEAD		30 // ms
-#define QUEUE_LENGTH			10000 // request count
-#define ERROR_RATE				(0.0001) // percentage
-#define CYCLE_POWER_CONSUMPTION	(0.01) // Watt
 
 int main(){
 	
@@ -33,6 +29,16 @@ int main(){
 		fclose(inputFile);
 		return 1;
 	}
+
+	TaskQueue* taskQueue = (TaskQueue*)malloc(sizeof(TaskQueue));;;
+	if( taskQueue == NULL){
+		printf("ERROR : taskQueue malloc failed");
+		return 1;
+	}
+
+	initQueue(taskQueue);
+
+
 	while(fgets(line, sizeof(line), inputFile) != NULL ){
 		sscanf(line, "%c %d %d",
 			   	&requestType, &logicalAddress, &sectorCount );
@@ -52,5 +58,7 @@ int main(){
 
 	fclose(inputFile);
 	fclose(outputFile);
+	free(taskQueue->tasks);
+	free(taskQueue);
 	return 0;
 }
