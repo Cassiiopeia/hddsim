@@ -1,22 +1,33 @@
 #ifndef TASK_QUEUE_H
 #define TASK_QUEUE_H
 
+#define READ 	0
+#define WRITE 	1
+
 typedef struct {
-	char requestType; // R or W
+	int requestType; // R or W
 	int logicalAddress;
 	int sectorCount;
-} Task;
+} task_t;
 
 typedef struct {
-	Task* tasks;
-	int front;
-	int rear;
-} TaskQueue;
+	int ptr;
+	int phase;
+} q_ptr_t;
 
-void initQueue(TaskQueue* q);
-int isEmpty(TaskQueue* q);
-int isFull(TaskQueue* q);
-Task enqueue(TaskQueue* q, Task task);
-Task dequeue(TaskQueue* q);
+typedef struct {
+	task_t* tasks;
+	q_ptr_t* front;
+	q_ptr_t* rear;
+	int num_of_entries;
+} task_queue_t;
+
+void initQueue(task_queue_t* q);
+int isEmpty(task_queue_t* q);
+int isFull(task_queue_t* q);
+int enqueue(task_queue_t* q, task_t task);
+// void enqueue(task_queue_t* q, task_t task);
+int dequeue(task_queue_t* q, task_t* task);
+// task_t dequeue(task_queue_t* q);
 
 #endif
